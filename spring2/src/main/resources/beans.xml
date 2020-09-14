@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    使用bean来创建对象，在spring这些都称为bean-->
+
+<!--    一般 类型 变量名 = new 类型();-->
+<!--        Hello hello = new Hello();-->
+<!--    bean=对象  new hello();-->
+<!--    id =变量名   class= new的对象;
+        property相当于给对象中的属性设置一个值
+        原来要主动new一个对象，现在交给容器去做，只需要配置一下就行了
+        使用spring后，对象是由spring创建的
+-->
+    <bean id="hello" class="com.ly.pojo.Hello">
+        <property name="str" value="Spring"/>
+    </bean>
+    <bean id="address" class="com.ly.pojo.Address"/>
+    <bean id="student" class="com.ly.pojo.Student">
+        <!--        普通值注入-->
+        <property name="name" value="lingyu"/>
+        <!--        bean注入,ref-->
+        <property name="address" ref="address"/>
+<!--数组-->
+        <property name="books">
+            <array>
+                <value>红楼梦</value>
+                <value>西游记</value>
+            </array>
+        </property>
+<!--        list-->
+        <property name="hobbies">
+            <list>
+                <value>听歌</value>
+                <value>打游戏</value>
+            </list>
+        </property>
+        <property name="card">
+            <map>
+                <entry key="身份证" value="123123123"/>
+                <entry key="学号" value="33333"/>
+            </map>
+        </property>
+<!--        set-->
+        <property name="games">
+            <set>
+                <value>DOTA</value>
+                <value>DarkSoul</value>
+            </set>
+        </property>
+<!--        null值注入-->
+<!--        <property name="wife" value=""/>-->
+<!--        上面方法一，最直接-->
+        <property name="wife">
+            <null/>  <!--    =<null></null>-->
+        </property>
+<!--        properties?配置类？-->
+        <property name="info">
+            <props>
+                <prop key="学号">17436118</prop>
+                <prop key="姓名">ling</prop>
+            </props>
+        </property>
+    </bean>
+
+
+
+</beans>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zx.mapper.cstmbedmapper">
+
+    <select id="getbedList" resultType="com.zx.model.cstmbed">
+        select * from yy.cstmbed
+    </select>
+
+    <select id="getBedById" parameterType="int" resultType="com.zx.model.cstmbed">
+        select * from yy.cstmbed where customer_id= #{customer_id}
+
+    </select>
+
+    <insert id="addBed" parameterType="com.zx.model.cstmbed">
+        insert into yy.cstmbed(customer_id,content_id,nursing_time,nursing_content,
+        nursing_count,staffinfo_id,nursing_id,is_deleted)
+        values (#{customer_id},#{content_id},#{nursing_time},
+        #{nursing_content},#{nursing_count},#{staffinfo_id},#{nursing_id},#{is_deleted})
+    </insert>
+
+    <update id="updateBed" parameterType="com.zx.model.cstmbed">
+        update yy.cstmbed set nursing_content = #{nursing_content} where customer_id = #{customer_id}
+    </update>
+    
+    <delete id="deleteBed" parameterType="int">
+        delete from yy.cstmbed where customer_id= #{customer_id};
+    </delete>
+</mapper>
+<!--        private int customer_id;-->
+<!--        private String content_id;-->
+<!--        private Date nursing_time;-->
+<!--        private String nursing_content;-->
+<!--        private String nursing_count;-->
+<!--        private String staffinfo_id;-->
+<!--        private String nursing_id;-->
+<!--        private int is_deleted;-->

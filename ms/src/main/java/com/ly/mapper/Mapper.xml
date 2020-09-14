@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ly.mapper.Mapper">
+
+
+    <insert id="insertMember" parameterType="com.ly.pojo.Member">
+            insert into ms.member(ddh,dhr,sddd)
+            values (#{ddh},#{dhr},#{sddd})
+    </insert>
+
+<!--    <insert id="insertUser" parameterType="com.ly.pojo.User">-->
+<!--            insert into ms.User(id,name,pwd)-->
+<!--            values (#{id},#{name},#{pwd})-->
+<!--    </insert>-->
+
+<!--    <select id="selectUser" resultType="user">-->
+<!--        select * from ms.user;-->
+<!--    </select>-->
+
+<!--    <update id="updateUser" parameterType="com.ly.pojo.User">-->
+<!--        update ms.User set name= #{name},pwd= #{pwd} where id= #{id}-->
+<!--    </update>-->
+
+<!--    <delete id="delUser" parameterType="int">-->
+<!--        delete from ms.User where id=#{id}-->
+<!--    </delete>-->
+
+</mapper>

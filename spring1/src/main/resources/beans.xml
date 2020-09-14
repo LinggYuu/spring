@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="mysql" class="com.ly.dao.UserDaoMysql"></bean>
+<!--    相当于new了一个UserDaoMysql-->
+    <bean id="oracle" class="com.ly.dao.UserDaoOracle"></bean>
+    <bean id="userServiceImpl" class="com.ly.service.UserServiceImpl">
+        <property name="userDao" ref="oracle"/>
+    </bean>
+    <bean id="TestB" class="com.ly.dao.TestB"></bean>
+    <bean id="TestA" class="com.ly.dao.TestA">
+        <property name="TestB" ref="TestB"/>
+    </bean>
+<!--    userServiceImpl中有个属性UserDao需要注入-->
+<!--    ref:引用spring容器中创建好的对象-->
+<!--相当于new了一个UserServiceImpl后给他设置了个mysql的userdao-->
+</beans>
